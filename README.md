@@ -1,4 +1,4 @@
-# colima-otel
+# Purpose
 
 This repo helps MacOS users setup a simple containerized [Splunk OTel Collector](https://docs.splunk.com/observability/en/gdi/opentelemetry/opentelemetry.html).
 
