@@ -23,7 +23,7 @@ services:
     image: quay.io/signalfx/splunk-otel-collector:latest
     restart: always
     container_name: splunk-otel-collector
-    hostname: kjt-plain-old-docker-container-10-11-2024
+    #hostname: kjt-plain-old-docker-container-10-11-2024
     volumes:
       - type: bind
         source: ./custom-otel-collector-config.yaml
