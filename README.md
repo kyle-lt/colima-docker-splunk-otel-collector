@@ -75,10 +75,12 @@ The following command will start both the OTel Collector, and Jaeger:
 docker-compose up -d
 ```
 
-## OpenTelemetry Collector Configuration
+## Further Configuration
 
-The OTel Collector configuration is covered in the [Compose file comments](./docker-compose.yaml#L8-L21).
+There are a few configuration options called out in the [Compose file comments](./docker-compose.yaml#L3-L21).
 
+- Container `hostname` value to give the container a nice name in the UI
+- OTel Collector config to adjust any and all Collector behavior
 
 ## Troubleshooting
 
