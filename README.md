@@ -2,7 +2,7 @@
 
 This repo helps MacOS users setup a simple containerized Splunk OTel Collector.  It requires Homebrew (for package management), [Colima](https://github.com/abiosoft/colima) (for container orchestration), and Docker (for container runtime) tooling. And it uses Docker Compose to orchestrate the OpenTelemetry Collector container.
 
-And finally, there's a helper "test" script called [`otel-cli-test.sh`](./otel-cli-test.sh) that requires [`otel-cli`](https://github.com/serkan-ozal/otel-cli) in order to run it.  The script sends 2 test traces, 1 via gRPC, and 1 via http, to test the trace pipeline.
+In addition, and completely optional, there's a helper "test" script called [`otel-cli-test.sh`](./otel-cli-test.sh) that requires [`otel-cli`](https://github.com/serkan-ozal/otel-cli) in order to run it.  The script sends 2 test traces, 1 via gRPC, and 1 via http, to test the trace pipeline.
 
 ## Pre-requisites
 
