@@ -53,6 +53,6 @@ services:
       SPLUNK_REALM: ${SPLUNK_REALM}
       # You must supply *either* the default or the custom config, because if not, the collector will run in gateway mode, and won't monitor the host
       # Default
-      # SPLUNK_CONFIG: /etc/otel/collector/agent_config.yaml
+      SPLUNK_CONFIG: /etc/otel/collector/agent_config.yaml
       # Custom
-      SPLUNK_CONFIG: /etc/otel/collector/custom-otel-collector-config.yaml
+      # SPLUNK_CONFIG: /etc/otel/collector/custom-otel-collector-config.yaml
