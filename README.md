@@ -113,6 +113,8 @@ The following command will start the Splunk OpenTelemetry Collector Compose Serv
 docker-compose up -d
 ```
 
+At this point, the container should be present as an "Infrastructure -> Host" in the O11y Cloud UI.
+
 ## Troubleshooting
 
 Make sure the container is running:
