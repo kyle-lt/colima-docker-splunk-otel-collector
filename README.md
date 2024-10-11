@@ -7,7 +7,7 @@ Requirements:
 - [Homebrew](https://brew.sh/) (for package management)
 - [Colima](https://github.com/abiosoft/colima) (for container virtualization)
 - [Docker Engine](https://www.docker.com/products/container-runtime/) (for container runtime)
-- [Docker Compose](https://docs.docker.com/compose/) (for container configuration/orchestration).
+- [Docker Compose](https://docs.docker.com/compose/) (for container configuration/orchestration)
 
 These components combine to easily run a Splunk OTel Collector in a Docker container on MacOS.
 
