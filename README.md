@@ -77,7 +77,7 @@ docker-compose up -d
 
 ## OpenTelemetry Collector Configuration
 
-The OTel Collector configuration is covered in the [Compose file comments](./docker-compose.yaml#L8-L18).
+The OTel Collector configuration is covered in the [Compose file comments](./docker-compose.yaml#L8-L21).
 
 
 ## Troubleshooting
