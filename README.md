@@ -1,12 +1,25 @@
 # colima-otel
 
-This repo helps MacOS users setup a simple containerized Splunk OTel Collector.  It requires Homebrew (for package management), [Colima](https://github.com/abiosoft/colima) (for container orchestration), and Docker (for container runtime) tooling. And it uses Docker Compose to orchestrate the OpenTelemetry Collector container.
+This repo helps MacOS users setup a simple containerized Splunk OTel Collector.  
 
-In addition, and completely optional, there's a helper "test" script called [`otel-cli-test.sh`](./otel-cli-test.sh) that requires [`otel-cli`](https://github.com/serkan-ozal/otel-cli) in order to run it.  The script sends 2 test traces, 1 via gRPC, and 1 via http, to test the trace pipeline.
+Requirements:
+
+- [Homebrew](https://brew.sh/) (for package management)
+- [Colima](https://github.com/abiosoft/colima) (for container virtualization)
+- [Docker Engine](https://www.docker.com/products/container-runtime/) (for container runtime)
+- [Docker Compose](https://docs.docker.com/compose/) (for container configuration/orchestration).
+
+These components combine to easily run a Splunk OTel Collector in a Docker container on MacOS.
+
+Optional:
+
+- [OTel CLI](https://github.com/serkan-ozal/otel-cli)
+
+There's a script called [`otel-cli-test.sh`](./otel-cli-test.sh) that uses OTel CLI to send 2 test traces (1 via gRPC, and 1 via http) to the Splunk OTel Collector.
 
 ## Pre-requisites
 
-- [Homebrew](https://brew.sh/)
+### Homebrew
 
 To install Homebrew:
 
@@ -28,17 +41,17 @@ brew install colima
 
 This installer might take 3-5 minutes, so be patient!
 
-### Docker CLI
+### Docker Engine
 
-Run the Homebrew installer for `docker` (CLI):
+Run the Homebrew installer for `docker`:
 
 ```shell
 brew install docker
 ```
 
-### Docker Compose CLI
+### Docker Compose
 
-Run the Homebrew installer for `docker-compose` (CLI):
+Run the Homebrew installer for `docker-compose`:
 
 ```shell
 brew install docker-compose
@@ -46,13 +59,31 @@ brew install docker-compose
 
 ## Start Colima
 
-Start the `colima` container orchestrator:
+Start the `colima` container virtualization:
 
 ```shell
 colima start
 ```
 
-## Rename and edit `.env_example` file
+A successfull startup will look something like:
+
+```shell
+❯ colima start
+INFO[0000] starting colima                              
+INFO[0000] runtime: docker                              
+INFO[0001] starting ...                                  context=vm
+INFO[0013] provisioning ...                              context=docker
+INFO[0014] starting ...                                  context=docker
+INFO[0015] done
+```
+
+## Configuration
+
+### Required Configuration
+
+#### Rename and edit `.env_example` file
+
+Docker Compose can use a `.env` file to populate environment variables.  `.env_example` is a placeholder for sensitive env vars.
 
 Copy the `.env_example` file to `.env`
 
@@ -67,20 +98,20 @@ SPLUNK_ACCESS_TOKEN=<YOUR_ACCESS_TOKEN>
 SPLUNK_REALM=<YOUR_REALM>
 ```
 
-## Start the Docker Compose Services
-
-The following command will start both the OTel Collector, and Jaeger:
-
-```shell
-docker-compose up -d
-```
-
-## Further Configuration
+### Optional Configuration
 
 There are a few configuration options called out in the [Compose file comments](./docker-compose.yaml#L3-L21).
 
 - Container `hostname` value to give the container a nice name in the UI
 - OTel Collector config to adjust any and all Collector behavior
+
+## Start the Docker Compose Services
+
+The following command will start the Splunk OpenTelemetry Collector Compose Service:
+
+```shell
+docker-compose up -d
+```
 
 ## Troubleshooting
 
@@ -102,5 +133,3 @@ Check for errors in the OpenTelemetry Collector log:
 ```shell
 docker logs splunk-otel-collector
 ```
-
-
