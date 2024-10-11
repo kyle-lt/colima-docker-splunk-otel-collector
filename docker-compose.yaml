@@ -1,21 +1,24 @@
 # This Compose file deploys the latest version of the Splunk OpenTelemetry Collector.
 #
-# There are two major things to change here:
+# There are two major things you can change here:
+#
+# - NOTE: Neither of these are required, it'll work just fine by touching nothing!
 #
 # 1. The `hostname` of the container
-# - Change it to the name of the host you want to see in the O11y UI
+# - By default, the container ID will be used as the hostname
+# - If desired, uncomment `hostname` and change it to the name of the host you want to see in the O11y UI
 #
 # 2. The OTel Collector Config
 # - There are two options, use the default *agent* config, or use the "custom" *agent* config
-# - Change it via `environment` variable SPLUNK_CONFIG
+# - Change it via `environment` variable SPLUNK_CONFIG (just comment/uncomment)
+# - By default, the default config is used
 #
 #   - The default config works except that it doesn't define `deployment.environment`, which
 #     is a nice way to tag entities in O11y Cloud.  But for a quick test, it's fine.
 #
 #   - The cusom config will apply the `deployment.environment` resource attribute to all
 #     telemetry signals, and so is recommended.  Be sure to follow the instructions at the
-#     top of the `otel-collector-config.yaml` file to adjust per your environment.
-#     NOTE: the UI is wonky with environment, though, I can't seem to consistently use it...
+#     top of the `custom-otel-collector-config.yaml` file to adjust per your environment.
 services:
 
   # Splunk OTel Collector
