@@ -79,9 +79,6 @@ docker-compose up -d
 
 The OpenTelemetry Collector is configured with the `otel-collector-config.yaml` file, but it's ready out-of-the-box to work with Jaeger.
 
-## Finding the data in Splunk O11y Cloud
-
-
 
 ## Troubleshooting
 
